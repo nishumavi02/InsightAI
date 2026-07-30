@@ -60,3 +60,23 @@ Customer
 Marketing Campaign
         │
         └── influences ─► Order
+---
+
+## Common Data Types
+
+| Data Type | Purpose | Example |
+|-----------|---------|---------|
+| INTEGER | Whole numbers | 25 |
+| REAL | Decimal values | 199.99 |
+| TEXT | Text values | Nishu |
+| TEXT (Date Format: YYYY-MM-DD) | Dates | 2026-07-30 |
+---
+
+## Common Database Constraints
+
+| Constraint | Purpose | Example |
+|------------|---------|---------|
+| PRIMARY KEY | Uniquely identifies each record | customer_id |
+| NOT NULL | Prevents empty values | customer_name |
+| UNIQUE | Prevents duplicate values | email |
+| CHECK | Ensures valid values | age >= 0 |
