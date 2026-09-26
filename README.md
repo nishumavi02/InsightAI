@@ -1,108 +1,91 @@
-# InsightAI
+# InsightAI — AI-Powered Business Decision Intelligence Platform
 
-## Overview
+**InsightAI** is an intelligent decision intelligence platform designed to help business leaders (CEOs, Sales, Operations) query structured business data, internal company documents, and historical trends using natural language.
 
-InsightAI is an AI-powered Decision Intelligence Platform designed to help businesses transform raw data into actionable insights.
-
-The platform combines business analytics, data engineering, machine learning, and generative AI to answer natural language business questions, generate visual reports, forecast trends, and support data-driven decision-making.
+Instead of requiring users to manually run SQL queries, search policy documents, and build spreadsheet forecasts, InsightAI unifies these workflows into a single interactive Streamlit dashboard powered by a hybrid multi-agent AI architecture.
 
 ---
 
-## Current Development
+## 🏗️ System Architecture
 
-🚧 Active Development
+                   USER / DASHBOARD (Streamlit)
+                                │
+                                ▼
+                  DECISION ROUTER (Rule-Based Intent)
+                                │
+     ┌──────────────────────────┼──────────────────────────┐
+     ▼                          ▼                          ▼
+ SQL AGENT                  RAG AGENT                   ML AGENT
+(Structured Data)        (Unstructured Docs)          (Predictive Analytics)
+     │                          │                          │
+SQLite Database         Document Embeddings            Revenue Model
+     │                          │                          │
+     └──────────────────────────┼──────────────────────────┘
+                                ▼
+                     BUSINESS-FRIENDLY RESPONSE
+                                │
+                                ▼
+                    CONVERSATION MEMORY (SQLite)
+---
 
-The project has successfully completed the core analytics pipeline and is currently expanding into dashboard development and AI-powered capabilities.
+## ✨ Core Features & Implementation Progress
+
+### 1. 🔍 SQL Agent (Structured Analytics)
+* **Text-to-SQL Pipeline:** Converts natural language questions into database queries automatically.
+* **Schema Inspection & Validation:** Dynamically inspects table schemas and restricts query execution strictly to read-only statements (`SELECT`, `WITH`). Destructive commands (`DROP`, `DELETE`, `UPDATE`, `INSERT`) are automatically blocked.
+* **Self-Healing Execution:** Performs an automated one-time query regeneration if the initially generated SQL fails.
+* **Business Insights:** Translates execution results into plain-language executive summaries.
+
+### 2. 📄 RAG Agent (Unstructured Document Intelligence)
+* **Vector Search:** Chunks and embeds internal documents using **Sentence Transformers (`all-MiniLM-L6-v2`)**.
+* **Grounded Answer Generation:** Employs cosine similarity thresholds to reject low-confidence retrievals, preventing AI hallucinations when information is missing.
+
+### 3. 📈 ML Forecasting Agent (Predictive Analytics)
+* **Revenue Trend Prediction:** Aggregates order data monthly to forecast future revenue trends using a Linear Regression baseline model.
+* **Evaluation Metrics:** Evaluates predictions using MAE, RMSE, and $R^2$ metrics to measure model performance.
+
+### 4. 🧠 Decision Router & Memory
+* **Query Dispatcher:** Evaluates user input and routes requests to the SQL, RAG, or ML agent.
+* **Persistent Chat History:** Logs user questions, answers, and timestamps into a `conversation_history` table in SQLite across application restarts.
+
+### 5. 📊 Interactive Dashboard
+* Built with **Streamlit** and **Plotly** to feature real-time KPI cards, interactive chart visualizations, AI executive summaries, and a conversational chat interface.
 
 ---
 
-## Current Capabilities
+## 🛠️ Tech Stack
 
-- Synthetic business dataset generation
-- CSV data pipeline
-- SQLite database design
-- ETL pipeline
-- Business KPI analysis using SQL
-- Pandas-based data processing
-- Automated chart generation with Matplotlib
-- Exported business reports
+* **Frontend & Dashboards:** Streamlit, Plotly
+* **Core Language:** Python
+* **Database:** SQLite
+* **Data Engineering & Processing:** Pandas, NumPy
+* **Machine Learning & NLP:** Scikit-learn, Sentence Transformers (`all-MiniLM-L6-v2`)
+* **Version Control:** Git, GitHub
 
 ---
 
-## Planned Features
+## 🗄️ Database Schema & Scope
 
-- Interactive Streamlit Dashboard
-- Machine Learning Forecasting
-- Natural Language to SQL
-- Retrieval-Augmented Generation (RAG)
-- AI-powered Business Recommendations
-- FastAPI Backend
-- PostgreSQL Migration
-- Deployment
+The application runs on an SQLite database (`insightai.db`) containing:
+* **`customers`:** ~500 records (demographics, customer details, location)
+* **`products`:** ~50 records (product categories, unit pricing, inventory levels)
+* **`orders`:** ~5,000 order transactions spanning 12 months
+* **`conversation_history`:** Chat logs and query records
 
 ---
 
-## Architecture
+## 🛡️ Safety & Reliability Features
 
-User
-↓
-Python Dataset Generator
-↓
-CSV Files
-↓
-SQLite Database
-↓
-Business SQL Analytics
-↓
-Pandas Analytics
-↓
-Data Visualization
-↓
-Saved Reports
-↓
-Streamlit Dashboard
-↓
-Machine Learning
-↓
-LLM + RAG
-↓
-AI Decision Intelligence
+* **Query Protection:** Blocks destructive database operations before execution.
+* **Retrieval Guardrails:** Rejects ungrounded document queries via confidence thresholding.
+* **Controlled Routing:** Uses predictable rule-based dispatching for key query types.
 
 ---
 
-## Technology Stack
+## 🚀 Future Roadmap
 
-### Current
-
-- Python
-- SQL
-- SQLite
-- Pandas
-- NumPy
-- Matplotlib
-
-### Upcoming
-
-- Streamlit
-- Plotly
-- Scikit-learn
-- PostgreSQL
-- FAISS
-- Sentence Transformers
-- OpenAI API
-- FastAPI
-
----
-
-## Project Goals
-
-- Build an end-to-end AI-powered analytics platform
-- Apply software engineering best practices
-- Learn production-ready data engineering workflows
-- Integrate machine learning and LLMs into a single intelligent system
-
----
-
-## Status
-
-This project is under active development as part of a long-term effort to build an industry-style AI application using modern data engineering, analytics, and generative AI technologies.
+- [ ] Autonomous LLM-based intent router replacing keyword routing.
+- [ ] Advanced time-series forecasting algorithms (e.g., ARIMA / Prophet).
+- [ ] Dedicated Vector DB integration (FAISS / Pinecone) for large document scale.
+- [ ] PostgreSQL migration for production-grade concurrency.
+- [ ] FastAPI backend separation and Cloud deployment via Docker.
