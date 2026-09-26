@@ -8,24 +8,26 @@ Instead of requiring users to manually run SQL queries, search policy documents,
 
 ## 🏗️ System Architecture
 
-                   USER / DASHBOARD (Streamlit)
-                                │
-                                ▼
-                  DECISION ROUTER (Rule-Based Intent)
-                                │
-     ┌──────────────────────────┼──────────────────────────┐
-     ▼                          ▼                          ▼
- SQL AGENT                  RAG AGENT                   ML AGENT
-(Structured Data)        (Unstructured Docs)          (Predictive Analytics)
-     │                          │                          │
-SQLite Database         Document Embeddings            Revenue Model
-     │                          │                          │
-     └──────────────────────────┼──────────────────────────┘
-                                ▼
-                     BUSINESS-FRIENDLY RESPONSE
-                                │
-                                ▼
-                    CONVERSATION MEMORY (SQLite)
+```
+                       USER / DASHBOARD (Streamlit)
+                                    │
+                                    ▼
+                      DECISION ROUTER (Rule-Based Intent)
+                                    │
+         ┌──────────────────────────┼──────────────────────────┐
+         ▼                          ▼                          ▼
+     SQL AGENT                  RAG AGENT                   ML AGENT
+ (Structured Data)        (Unstructured Docs)          (Predictive Analytics)
+         │                          │                          │
+   SQLite Database         Document Embeddings            Revenue Model
+         │                          │                          │
+         └──────────────────────────┼──────────────────────────┘
+                                    ▼
+                        BUSINESS-FRIENDLY RESPONSE
+                                    │
+                                    ▼
+                      CONVERSATION MEMORY (SQLite)
+```
 ---
 
 ## ✨ Core Features & Implementation Progress
