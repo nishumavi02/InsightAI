@@ -1,0 +1,51 @@
+product_id,product_name,category,price,inventory_level
+P001,Lamp,Home,17015.54,148
+P002,Keyboard,Electronics,28045.63,270
+P003,Fan,Home,16308.15,343
+P004,T-Shirt,Clothing,25088.32,425
+P005,Coffee,Grocery,7491.71,447
+P006,Coffee,Grocery,11153.28,146
+P007,Shoes,Clothing,8084.1,336
+P008,Fan,Home,34176.03,497
+P009,Lamp,Home,15541.94,298
+P010,Coffee,Grocery,42540.62,112
+P011,Bottle,Home,1113.39,160
+P012,Shoes,Clothing,2258.65,107
+P013,Cap,Clothing,46469.25,193
+P014,Python Programming,Books,47117.2,405
+P015,Headphones,Electronics,32708.08,215
+P016,Data Science,Books,25303.06,340
+P017,AI Fundamentals,Books,48998.39,127
+P018,Tea,Grocery,980.57,442
+P019,Shoes,Clothing,2167.31,63
+P020,Smartwatch,Electronics,14542.36,398
+P021,Machine Learning,Books,37635.57,276
+P022,Smartwatch,Electronics,15714.55,187
+P023,Coffee,Grocery,9228.39,488
+P024,Fan,Home,10764.34,18
+P025,Hoodie,Clothing,41587.62,319
+P026,Tablet,Electronics,46395.12,131
+P027,AI Fundamentals,Books,13944.54,486
+P028,Mouse,Electronics,31123.56,445
+P029,Hoodie,Clothing,36210.03,83
+P030,Mouse,Electronics,6500.44,478
+P031,SQL Basics,Books,8730.12,486
+P032,Chair,Home,6790.9,164
+P033,Sugar,Grocery,652.15,7
+P034,Smartwatch,Electronics,10190.92,274
+P035,Headphones,Electronics,46886.55,163
+P036,Jacket,Clothing,48230.69,221
+P037,Bottle,Home,25326.3,475
+P038,Machine Learning,Books,10852.57,348
+P039,Jeans,Clothing,28379.92,486
+P040,Jacket,Clothing,41997.55,360
+P041,Chair,Home,39519.53,342
+P042,Jacket,Clothing,16571.95,428
+P043,Bottle,Home,11074.95,457
+P044,Headphones,Electronics,3771.37,272
+P045,SQL Basics,Books,16439.51,59
+P046,Bottle,Home,12948.34,457
+P047,Headphones,Electronics,5030.67,117
+P048,Bread,Grocery,13958.92,41
+P049,Keyboard,Electronics,14145.89,140
+P050,Smartwatch,Electronics,5641.53,148
